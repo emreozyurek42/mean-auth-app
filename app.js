@@ -37,8 +37,12 @@ app.use('/users', users);
 
 app.get('/', (req, res) => {
     res.send('it is working!!');
-})
+});
+
+app.get('*', (req, res) => {
+   res.sendFile(path.join(__dirname, 'public/index.html'));
+});
 
 app.listen(port, () => {
     console.log(`Server started on port ${port}`);
-})
+});
